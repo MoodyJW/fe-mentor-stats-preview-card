@@ -22,7 +22,7 @@ body {
   font-family: "Inter", sans-serif;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -33,11 +33,11 @@ body {
 }
 
 .main-container {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  // display: flex;
+  // flex: 1;
+  // justify-content: center;
+  // align-items: center;
+  // height: 100%;
 
   .card {
     box-shadow: 0 20px 20px -10px var(--box-shadow);
@@ -52,10 +52,10 @@ body {
     .card-header {
       background: var(--violet-accent);
       height: 240px;
-      border-radius: 8px 8px 0 0;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
 
       .header-image {
-        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        // border-radius: var(--border-radius) var(--border-radius) 0 0;
         max-width: var(--max-width);
         mix-blend-mode: multiply;
       }
@@ -90,6 +90,10 @@ body {
         font-weight: 700;
         padding: 0 0 24px 0;
 
+        &:last-of-type {
+          padding: 0;
+        }
+
         .type {
           opacity: 0.6;
           font-weight: normal;
@@ -98,6 +102,62 @@ body {
           line-height: 25px;
           letter-spacing: 1px;
           text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  :root {
+    --max-width: 69.45rem;
+    --max-height: 28rem;
+  }
+
+  body {
+    text-align: left;
+  }
+
+  .main-container {
+    .card {
+      display: flex;
+      flex-direction: row-reverse;
+      max-width: var(--max-width);
+      max-height: var(--max-height);
+      min-height: unset;
+
+      .card-header {
+        height: 446px;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+
+        .header-image {
+          height: 446px;
+          width: 540px;
+        }
+      }
+
+      .card-content-container {
+        padding: 0 65px;
+        align-items: baseline;
+
+        h1 {
+          padding: 0 0 25px 0;
+          font-size: 36px;
+          line-height: 44px;
+        }
+
+        p {
+          padding: 0 50px 72px 0;
+        }
+
+        .stats-container {
+          display: flex;
+          gap: 60px;
+          // padding: 0 0 60px 72px;
+
+          .amount {
+            padding: 0;
+          }
         }
       }
     }
